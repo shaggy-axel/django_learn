@@ -1,16 +1,17 @@
-from django.utils import timezone
-from datetime import datetime, timedelta
+from datetime import timedelta
 
-from django.db import models
+from django.utils import timezone # NOQA[I202]
 
+from django.db import models      # NOQA[I202]
 
 
 class Question(models.Model):
+
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
-    	return self.question_text
+        return self.question_text
 
     def was_published_recently(self):
         now = timezone.now()
